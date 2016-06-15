@@ -1,0 +1,3 @@
+prestation_id_fk;adresse_id_fk;contact_id_fk;start;stop
+epilation;1;3;2016-06-16 09:00:00;2016-06-16 10:00:00
+epilation;1;3;2016-06-17 09:00:00;2016-06-17 10:00:00
