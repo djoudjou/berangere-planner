@@ -41,7 +41,7 @@ public class PlannerServiceIntTest {
 	Prestation epilation;
 	Prestation vernis;
 	Contact contact;
-	Adresse adresse;
+	Adresse villemoisson;
 	
 	
 	@Before
@@ -55,8 +55,8 @@ public class PlannerServiceIntTest {
 		contact = new Contact("Aurelie", 35L);
 		entityManager.persist(contact);
 		
-		adresse = new Adresse("12 rue de la tourelle 91360 Villemoisson sur orge", contact);
-		entityManager.persist(adresse);
+		villemoisson = new Adresse("12 rue de la tourelle 91360 Villemoisson sur orge", contact);
+		entityManager.persist(villemoisson);
 		
 		entityManager.flush();
 	}
@@ -64,9 +64,11 @@ public class PlannerServiceIntTest {
 	@Test
 	public void findAvailableTimeSlot_ShouldReturnListOfAvailableTimeSlot() {
 		// Given
+		// |X___X____|
+		
 		ZonedDateTime now = ZonedDateTime.now();
-		Schedule scheduleEpilation1 = new Schedule(now,epilation,adresse);
-		Schedule scheduleEpilation2 = new Schedule(now.plusMinutes(3*epilation.getDuration()),epilation,adresse);
+		Schedule scheduleEpilation1 = new Schedule(now,epilation,villemoisson);
+		Schedule scheduleEpilation2 = new Schedule(now.plusMinutes(3*epilation.getDuration()),epilation,villemoisson);
 		entityManager.persist(scheduleEpilation1);
 		entityManager.persist(scheduleEpilation2);
 		
