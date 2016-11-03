@@ -22,35 +22,36 @@ public class Prestation implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@NotNull
-    @Size(min = 0, max = 50)
-    @Id
-    @Column(length = 50)
-	private String name;
+	@Size(min = 0, max = 50)
+	@Id
+	@Column(length = 50)
+	private String nom;
 
 	@Size(max = 200)
-	@Column(name = "description", length = 200, unique = false, nullable = false)
+	@Column(name = "description", length = 200, unique = false, nullable = true)
 	private String description;
 
-	@Column(name = "duration", unique = false, nullable = false)
-	private Long duration;
+	@Column(name = "duree", nullable = false)
+	private long duree;
+
+	@Column(name = "montant", nullable = false)
+	private long montant;
 
 	public Prestation() {
-
 	}
 
-	public Prestation(String name, String description, Long duration) {
-		super();
-		this.name = name;
-		this.description = description;
-		this.duration = duration;
+	public Prestation(String nom, long duree, long montant) {
+		this.nom = nom;
+		this.duree = duree;
+		this.montant = montant;
 	}
 
-	public String getName() {
-		return name;
+	public String getNom() {
+		return nom;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setNom(String nom) {
+		this.nom = nom;
 	}
 
 	public String getDescription() {
@@ -61,71 +62,20 @@ public class Prestation implements Serializable {
 		this.description = description;
 	}
 
-	public Long getDuration() {
-		return duration;
+	public long getDuree() {
+		return duree;
 	}
 
-	public void setDuration(Long duration) {
-		this.duration = duration;
+	public void setDuree(long duree) {
+		this.duree = duree;
 	}
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((description == null) ? 0 : description.hashCode());
-		result = prime * result + ((duration == null) ? 0 : duration.hashCode());
-		result = prime * result + ((name == null) ? 0 : name.hashCode());
-		return result;
+	public long getMontant() {
+		return montant;
 	}
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj) {
-			return true;
-		}
-		if (obj == null) {
-			return false;
-		}
-		if (getClass() != obj.getClass()) {
-			return false;
-		}
-		Prestation other = (Prestation) obj;
-		if (description == null) {
-			if (other.description != null) {
-				return false;
-			}
-		} else if (!description.equals(other.description)) {
-			return false;
-		}
-		if (duration == null) {
-			if (other.duration != null) {
-				return false;
-			}
-		} else if (!duration.equals(other.duration)) {
-			return false;
-		}
-		if (name == null) {
-			if (other.name != null) {
-				return false;
-			}
-		} else if (!name.equals(other.name)) {
-			return false;
-		}
-		return true;
-	}
-
-	@Override
-	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("Prestation [name=");
-		builder.append(name);
-		builder.append(", description=");
-		builder.append(description);
-		builder.append(", duration=");
-		builder.append(duration);
-		builder.append("]");
-		return builder.toString();
+	public void setMontant(long montant) {
+		this.montant = montant;
 	}
 
 }

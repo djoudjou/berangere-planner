@@ -1,4 +1,3 @@
-
 #crawler max duration in seconds
 crawler_duration : 10
 
@@ -45,5 +44,4 @@ spring:
             hibernate.cache.region.factory_class: org.hibernate.cache.ehcache.SingletonEhCacheRegionFactory
     
 liquibase:
-    contexts: dev
-    change-log: classpath:/liquibase/master.xml
+    enabled: false
