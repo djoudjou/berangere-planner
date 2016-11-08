@@ -32,16 +32,22 @@ spring:
         password:
     h2:
         console:
-            enabled: false
+            enabled: true
     jpa:
         database-platform: org.hibernate.dialect.H2Dialect
         database: H2
         show_sql: true
+        hibernate:
+            ddl-auto: create-drop 
+            naming-strategy: org.springframework.boot.orm.jpa.hibernate.SpringNamingStrategy
         properties:
             hibernate.cache.use_second_level_cache: true
             hibernate.cache.use_query_cache: false
             hibernate.generate_statistics: true
             hibernate.cache.region.factory_class: org.hibernate.cache.ehcache.SingletonEhCacheRegionFactory
+#            javax.persistence.schema-generation.create-source: metadata
+#            javax.persistence.schema-generation.scripts.action: create
+#            javax.persistence.schema-generation.scripts.create-target: create.sql
     
 liquibase:
     enabled: false

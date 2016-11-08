@@ -13,7 +13,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import fr.djoutsop.berangere.planner.BerangerePlannerConfiguration;
 import fr.djoutsop.berangere.planner.entity.Adresse;
-import fr.djoutsop.berangere.planner.entity.Cliente;
 import fr.djoutsop.berangere.planner.entity.Prestation;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -30,7 +29,7 @@ public class ScheduleRepositoryIntTest {
 	
 	Prestation epilation;
 	Prestation vernis;
-	Cliente contact;
+//	ClienteOld contact;
 	Adresse adresse;
 	
 //	@Before
